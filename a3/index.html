@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="input1" type="text" placeholder="Type something" />
+    <input class="input2" type="text" placeholder="Type something" />
+    <button onclick="adding()">Click</button>
+
+    <div class="js-container"></div>
+
+    <script>
+      function adding() {
+        const input1 = document.querySelector(".input1");
+        const input2 = document.querySelector(".input2");
+
+        const value1 = Number(input1.value);
+        const value2 = Number(input2.value);
+
+        const result = value1 + value2;
+
+        document.querySelector(".js-container").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
