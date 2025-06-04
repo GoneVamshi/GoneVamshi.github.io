@@ -13,6 +13,7 @@
     <div class="js-container"></div>
 
     <script>
+      let clickCount = 0;
       function adding() {
         const input1 = document.querySelector(".input1");
         const input2 = document.querySelector(".input2");
@@ -20,9 +21,32 @@
         const value1 = Number(input1.value);
         const value2 = Number(input2.value);
 
-        const result = value1 + value2;
+        let result;
 
-        alert(result);
+        switch (clickCount % 4) {
+          case 0:
+            result = value1 + value2;
+            alert("Addition:" + result);
+            break;
+          case 1:
+            result = value1 - value2;
+            alert("substraction:" + result);
+            break;
+          case 2:
+            result = value1 * value2;
+            alert("multiply:" + result);
+            break;
+          case 3:
+            if (value2 !== 0) {
+              result = value1 / value2;
+              alert("Division:" + result);
+            } else {
+              alert("cannot divide by zero");
+            }
+            break;
+        }
+
+        clickCount++;
       }
     </script>
   </body>
