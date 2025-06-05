@@ -6,67 +6,27 @@
     <title>Document</title>
   </head>
   <body>
-    <input class="input1" type="text" placeholder="Type something" />
-    <input class="input2" type="text" placeholder="Type something" />
-    <button onclick="adding()">Click</button>
-
-    <div class="js-container"></div>
+    <input class="js-input1-button" placeholder="type something" required />
+    <input class="js-input2-button" placeholder="type some thing" required />
+    <button onclick="calc()">click</button>
+    <div class="js-result"></div>
 
     <script>
-      let clickCount = 0;
-      function adding() {
-        const input1 = document.querySelector(".input1");
-        const input2 = document.querySelector(".input2");
+      function calc() {
+        const inputButton1 = document.querySelector(".js-input1-button");
+        const inputbutton2 = document.querySelector(".js-input2-button");
 
-        const value1 = Number(input1.value);
-        const value2 = Number(input2.value);
+        const input1 = Number(inputButton1.value);
+        const input2 = Number(inputbutton2.value);
 
-        const addition = value1 + value2;
-        const substraction = value1 - value2;
-        const multiply = value1 * value2;
-        const division = value1 / value2;
+        const addition = input1 + input2;
+        const substraction = input1 - input2;
+        const multiply = input1 * input2;
+        const division = input1 / input2;
 
-        if (clickCount === 0) {
-          alert(addition);
-          clickCount++;
-        } else if (clickCount === 1) {
-          alert(substraction);
-          clickCount++;
-        } else if (clickCount === 2) {
-          alert(multiply);
-          clickCount++;
-        } else if (clickCount === 3) {
-          alert(division);
-          clickCount = 0;
-        }
+        const result = `<div><p>${addition}</p> <p>${substraction}</p><p>${multiply}</p><p>${division}</p></div>`;
 
-        /*let result;
-
-        switch (clickCount % 4) {
-          case 0:
-            result = value1 + value2;
-            alert("Addition:" + result);
-            break;
-          case 1:
-            result = value1 - value2;
-            alert("substraction:" + result);
-            break;
-          case 2:
-            result = value1 * value2;
-            alert("multiply:" + result);
-            break;
-          case 3:
-            if (value2 !== 0) {
-              result = value1 / value2;
-              alert("Division:" + result);
-            } else {
-              alert("cannot divide by zero");
-            }
-            break;
-        }
-
-        clickCount++;
-        */
+        document.querySelector(".js-result").innerHTML = result;
       }
     </script>
   </body>
