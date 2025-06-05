@@ -21,7 +21,26 @@
         const value1 = Number(input1.value);
         const value2 = Number(input2.value);
 
-        let result;
+        const addition = value1 + value2;
+        const substraction = value1 - value2;
+        const multiply = value1 * value2;
+        const division = value1 / value2;
+
+        if (clickCount === 0) {
+          alert(addition);
+          clickCount++;
+        } else if (clickCount === 1) {
+          alert(substraction);
+          clickCount++;
+        } else if (clickCount === 2) {
+          alert(multiply);
+          clickCount++;
+        } else if (clickCount === 3) {
+          alert(division);
+          clickCount = 0;
+        }
+
+        /*let result;
 
         switch (clickCount % 4) {
           case 0:
@@ -47,6 +66,7 @@
         }
 
         clickCount++;
+        */
       }
     </script>
   </body>
