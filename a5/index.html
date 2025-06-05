@@ -4,29 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .input1,
+      .input2,
+      .input3 {
+        display: block;
+        margin: 10px;
+      }
+      button {
+        margin: 10px;
+      }
+    </style>
   </head>
   <body>
-    <input class="js-input1-button" placeholder="type something" required />
-    <input class="js-input2-button" placeholder="type some thing" required />
-    <button onclick="calc()">click</button>
-    <div class="js-result"></div>
+    <input type="text" class="name input1" placeholder="name" required />
+    <input type="email" class="email input2" placeholder="Email" required />
+    <input
+      type="password"
+      class="password input3"
+      placeholder="password"
+      required
+    />
+    <button onclick="formFilling()">submit</button>
+
+    <div class="result"></div>
 
     <script>
-      function calc() {
-        const inputButton1 = document.querySelector(".js-input1-button");
-        const inputbutton2 = document.querySelector(".js-input2-button");
+      function formFilling() {
+        const name = document.querySelector(".name").value;
+        const email = document.querySelector(".email").value;
+        const password = document.querySelector(".password").value;
 
-        const input1 = Number(inputButton1.value);
-        const input2 = Number(inputbutton2.value);
-
-        const addition = input1 + input2;
-        const substraction = input1 - input2;
-        const multiply = input1 * input2;
-        const division = input1 / input2;
-
-        const result = `<div><p>${addition}</p> <p>${substraction}</p><p>${multiply}</p><p>${division}</p></div>`;
-
-        document.querySelector(".js-result").innerHTML = result;
+        const result = `
+            <div>
+                <p>${name}</p>
+                <p>${email}</p>
+                <p>${password}</p>
+                </div>`;
+        document.querySelector(".result").innerHTML = result;
       }
     </script>
   </body>
