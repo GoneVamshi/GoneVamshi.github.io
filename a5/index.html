@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input class="js-input1-button" placeholder="type something" required />
+    <input class="js-input2-button" placeholder="type some thing" required />
+    <button onclick="calc()">click</button>
+    <div class="js-result"></div>
+
+    <script>
+      function calc() {
+        const inputButton1 = document.querySelector(".js-input1-button");
+        const inputbutton2 = document.querySelector(".js-input2-button");
+
+        const input1 = Number(inputButton1.value);
+        const input2 = Number(inputbutton2.value);
+
+        const addition = input1 + input2;
+        const substraction = input1 - input2;
+        const multiply = input1 * input2;
+        const division = input1 / input2;
+
+        const result = `<div><p>${addition}</p> <p>${substraction}</p><p>${multiply}</p><p>${division}</p></div>`;
+
+        document.querySelector(".js-result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
