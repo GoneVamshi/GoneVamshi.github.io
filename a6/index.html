@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        width: 150px;
+        padding: 10px 25px;
+        font-size: 18px;
+      }
+      button {
+        width: 100px;
+        padding: 14px 14px;
+        font-size: 17px;
+        font-family: arial;
+        border-radius: 15px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fruit List</h1>
+    <input type="text" class="input" placeholder="Name of the Fruit" />
+    <button onclick="addElement()">Add</button>
+    <div class="js-result"></div>
+
+    <script>
+      const fruits = [];
+
+      function renderTodo() {
+        let todoList = "";
+        fruits.forEach((object) => {
+          const name = object;
+
+          const html = `
+          <div>${name}</div>
+          `;
+          todoList += html;
+          document.querySelector(".js-result").innerHTML = todoList;
+        });
+      }
+
+      function addElement() {
+        const element = document.querySelector(".input");
+        const name = element.value;
+        fruits.push(name);
+
+        element.value = "";
+        console.log(fruits);
+        renderTodo();
+      }
+    </script>
+  </body>
+</html>
