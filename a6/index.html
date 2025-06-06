@@ -18,13 +18,32 @@
         border-radius: 15px;
         border: none;
       }
+      .result-grid {
+        display: grid;
+        grid-template-columns: 180px 250px;
+        row-gap: 15px;
+        column-gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 17px;
+        font-family: arial;
+        margin-left: 10px;
+      }
+      .delete-element {
+        background-color: rgb(172, 6, 6);
+        border: none;
+        padding: 10px;
+        font-size: 15px;
+        color: white;
+        width: 100px;
+      }
     </style>
   </head>
   <body>
     <h1>Fruit List</h1>
     <input type="text" class="input" placeholder="Name of the Fruit" />
     <button onclick="addElement()">Add</button>
-    <div class="js-result"></div>
+    <div class="js-result result-grid"></div>
 
     <script>
       const fruits = [];
@@ -36,10 +55,20 @@
 
           const html = `
           <div>${name}</div>
+          <button class="delete-element js-delete-element">Delete</button>
           `;
           todoList += html;
-          document.querySelector(".js-result").innerHTML = todoList;
         });
+        document.querySelector(".js-result").innerHTML = todoList;
+
+        document
+          .querySelectorAll(".js-delete-element")
+          .forEach((deleteButton, index) => {
+            deleteButton.addEventListener("click", () => {
+              fruits.splice(index, 1);
+              renderTodo();
+            });
+          });
       }
 
       function addElement() {
@@ -48,7 +77,6 @@
         fruits.push(name);
 
         element.value = "";
-        console.log(fruits);
         renderTodo();
       }
     </script>
