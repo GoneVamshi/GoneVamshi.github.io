@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Name of the user" class="js-input" />
+    <button class="js-submit" onclick="fetchData()">Submit</button>
+
+    <div class="js-result"></div>
+
+    <script>
+      function fetchData() {
+        const inputElement = document.querySelector(".js-input").value.trim();
+        const promise = fetch("https://jsonplaceholder.typicode.com/users")
+          .then((response) => {
+            return response.json();
+          })
+          .then((users) => {
+            const names = users.find(
+              (nameDetails) => nameDetails.name === inputElement
+
+              //   if (nameDetails.name == inputElement) {
+              //     document.querySelector(".js-result").innerHTML = nameDetails;
+              //   } else {
+              //     document.querySelector(".js-result").innerHTML =
+              //       "Invalid User Nmae";
+              //   }
+            );
+            const resultElement = document.querySelector(".js-result");
+            if (names) {
+              resultElement.innerHTML = `<pre>${JSON.stringify(
+                names.name,
+                null,
+                2
+              )}</pre>`;
+            } else {
+              resultElement.innerHTML = "Invalid User Name";
+            }
+          });
+
+        return promise;
+      }
+
+      //   const url = 'https://jsonplaceholder.typicode.com/users';
+      //   function display(){
+      //     let str=''
+      //     fetch(url).then((response)=>response.json())
+      //     .then((users)=>{
+      //         users.map((user)=>{
+      //             if(user.name=== document.querySelector('.js-input')).value{
+      //                 ste+=`<div>${user.name}</div>`
+      //             }
+      //         })
+      //         document.querySelector('.js-result').innerHTML=str
+      //     })
+      //   }
+    </script>
+  </body>
+</html>
